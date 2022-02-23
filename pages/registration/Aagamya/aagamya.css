@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* reset css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    height: 100vh;
+    gap: 2rem;
+    width: 100%;
+    background-color: black;
+}
+
+.container section {
+    padding: 2rem;
+    margin-top: 6rem;
+}
+
+.regis-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+blockquote {
+    font-size: 1.4rem;
+}
+
+.details-container img {
+    width: 80%;
+    padding-top: 2rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.desc-title {
+    font-weight: 500;
+    color: rgb(255, 47, 92);
+    font-size: 2.4rem;
+}
+
+/* Form Style */
+
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    background-image: url('../../../assets/network-4348660.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: black;
+}
+
+.form-title {
+    font-size: 2.2rem;
+    color: black;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    color: black;
+    border: none;
+    border-radius: 4px;
+    padding: .3rem;
+    margin-right: 5px;
+    outline: none;
+}
+
+form label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: black;
+}
+
+form .member-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.register-btn {
+    padding: .5rem 3rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: black;;
+    color: white;
+}
+
+input[type="file"] {
+    background-color: white;
+}
+
+.register-btn:hover {
+    background-color: rgb(46, 46, 46);
+}
+
+/* Form Style end */
