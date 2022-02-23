@@ -14,7 +14,6 @@
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     height: 100vh;
-    gap: 2rem;
     width: 100%;
     background-color: black;
 }
@@ -26,6 +25,8 @@
 
 .regis-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
 }
