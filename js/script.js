@@ -2,7 +2,24 @@ let controller = new ScrollMagic.Controller();
 let timeline = new TimelineMax();
 let textAnimate = new TimelineMax();
 let scrollCont = new TimelineMax();
+const navbar = document.body;
 const scrollBtn = document.querySelector(".action");
+
+// reload on brower resize 
+
+jQuery(function($) {
+    var windowWidth = $(window).width();
+    var windowHeight = $(window).height();
+
+    $(window).resize(function() {
+        if(windowWidth != $(window).width() || windowHeight != $(window).height()) {
+            location.reload();
+            return;
+        }
+    });
+});
+
+// reload on browser resize end
 
 // Text Animation
 
