@@ -11,6 +11,61 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* hamburger menu css */
+
+.menu-btn {
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger {
+    width: 35px;
+    height: 5px;
+    border-radius: 5px;
+    background: #fff;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before, .menu-btn_burger::after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 5px;
+    border-radius: 5px;
+    background: #fff;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-13px);
+}
+
+.menu-btn_burger::after {
+    transform: translateY(13px);
+}
+
+/* =====animation======= */
+
+.menu-btn.open .menu-btn_burger {
+    transform: translateX(-40px);
+    background: transparent;
+}
+
+.menu-btn.open .menu-btn_burger::before {
+    transform: rotate(45deg) translate(35px, -35px)
+}
+
+.menu-btn.open .menu-btn_burger::after {
+    transform: rotate(-45deg) translate(35px, 35px)
+}
+
+/* hamburger menu css ends */
+
 /* parallax css */
 
 .img-container {
@@ -167,6 +222,15 @@
 
 /* content css ends */
 
+/* hamburger interaction */
+
+/* .fa-solid.fa-bars {
+
+} */
+
+/* hamburger interaction end */
+
+
 /* scrollbar hide */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -178,4 +242,44 @@ body::-webkit-scrollbar {
 body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+/* ======RESPONSIVE MEDIA QUERIES======= */
+
+/* media query for information */
+@media only screen and (max-width: 1000px){
+    .info-container {
+        display: flex;
+    }
+    
+    .technofania-logo {
+        width: 18%;
+    }
+
+    .details-container {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .details-title {
+        font-size: 3.8rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+    }
+
+    .register-btn {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .menu-btn {
+        display: flex;
+    }
+
+    .nav-options {
+        display: none;
+    }
 }
