@@ -2,20 +2,26 @@ let controller = new ScrollMagic.Controller();
 let timeline = new TimelineMax();
 let textAnimate = new TimelineMax();
 let scrollCont = new TimelineMax();
-const navbar = document.body;
+const navCont = document.querySelector(".navbar");
 const scrollBtn = document.querySelector(".action");
 
 // hamburger animation 
 
 const menuBtn = document.querySelector(".menu-btn");
+const navbar = document.querySelector(".nav-options");
+
 let menuOpen = false;
 
 menuBtn.addEventListener('click', () => {
     if(!menuOpen) {
         menuBtn.classList.add('open');
+        navbar.classList.add('show');
+        navCont.classList.add('toggle');
         menuOpen = true;
     } else {
         menuBtn.classList.remove('open');
+        navbar.classList.remove('show');
+        navCont.classList.remove('toggle');
         menuOpen = false;
     }
 });
