@@ -61,3 +61,45 @@ let scene = new ScrollMagic.Scene({
     .addTo(controller);
 
 // Parallax Animation End
+
+// countdown timer 
+
+let countdown = () => {
+    const finalDate = new Date("March 1, 2022 00:00:00").getTime();
+    const currDate = new Date().getTime();
+    const remainingTime = finalDate - currDate;
+
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    const remainingDays = Math.floor(remainingTime / day);
+    const remainingHours = Math.floor((remainingTime % day) / hour);
+    const remainingMinutes = Math.floor((remainingTime % hour) / minute);
+    const remainingSeconds = Math.floor((remainingTime % minute) / second);
+
+    if(remainingDays<10)
+        document.querySelector('.days').innerText = "0" + remainingDays;
+    else 
+        document.querySelector('.days').innerText = remainingDays;
+
+    if(remainingHours<10)
+        document.querySelector('.hours').innerText = "0" + remainingHours;
+    else 
+        document.querySelector('.hours').innerText = remainingHours;
+
+    if(remainingMinutes<10)
+        document.querySelector('.minutes').innerText = "0" + remainingMinutes;
+    else 
+        document.querySelector('.minutes').innerText = remainingMinutes;
+
+    if(remainingSeconds<10)
+        document.querySelector('.seconds').innerText = "0" + remainingSeconds;
+    else 
+        document.querySelector('.seconds').innerText = remainingSeconds;
+}
+
+setInterval(countdown, 1000);
+
+// countdown timer end

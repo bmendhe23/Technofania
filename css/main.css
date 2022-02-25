@@ -173,14 +173,20 @@
 
 /* content css ends */
 
-/* hamburger interaction */
+/* countdown timer css */
 
-/* .fa-solid.fa-bars {
+.countdown-timer {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    font-size: 1.4rem;
+    z-index: 2;
+    display: flex;
+    gap: 1rem;
+    transform: translateX(-50%) translateY(100%);
+}
 
-} */
-
-/* hamburger interaction end */
-
+/* countdown timer css end */
 
 /* scrollbar hide */
 
@@ -198,6 +204,20 @@ body {
 /* ======RESPONSIVE MEDIA QUERIES======= */
 
 /* media query for information */
+@media only screen and (min-width: 1200px) and (max-width: 1400px){
+    .countdown-timer {
+        top: 55%;
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .countdown-timer {
+        top: 53%;
+        font-size: 1.3rem;
+    }
+}
+
 @media only screen and (max-width: 1000px){
     .info-container {
         display: flex;
@@ -206,6 +226,12 @@ body {
     .technofania-logo {
         width: 18%;
     }
+
+    .countdown-timer {
+        top: 52%;
+        font-size: 1.3rem;
+    }
+
 
     .details-container {
         justify-content: center;
@@ -233,6 +259,12 @@ body {
         right: 10%;
         transition: all .5s ease-in-out;
     }
+
+    .countdown-timer {
+        top: 51%;
+        font-size: 1.3rem;
+    }
+
 
     .navbar {
         align-items: unset;
@@ -288,6 +320,11 @@ body {
         font-size: 3.6rem;
     }
 
+    .countdown-timer {
+        top: 52%;
+        font-size: 1.2rem;
+    }
+
     .details-title {
         font-size: 3.4rem;
     }
@@ -310,6 +347,12 @@ body {
     .welcome-title {
         font-size: 3.2rem;
     }
+
+    .countdown-timer {
+        top: 54%;
+        font-size: 1rem;
+    }
+
 
     .info-container {
         padding: 2rem 4rem;
@@ -336,6 +379,12 @@ body {
     .welcome-title {
         font-size: 2rem;
     }
+
+    .countdown-timer {
+        top: 56%;
+        font-size: .8rem;
+    }
+
 
     .navbar {
         padding: 1rem 2rem;
