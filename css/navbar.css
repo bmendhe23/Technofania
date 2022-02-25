@@ -142,7 +142,7 @@ header {
         flex-direction: column;
     }
 
-    @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    @supports ((-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px))) {
         .navbar.toggle {
             background-color: rgba(0, 0, 0, 0.363);
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
