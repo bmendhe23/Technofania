@@ -1,0 +1,26 @@
+{
+  "name": "technofania",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js -e html,js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmendhe23/Technofania.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmendhe23/Technofania/issues"
+  },
+  "homepage": "https://github.com/bmendhe23/Technofania#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
