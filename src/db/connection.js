@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/Technofania', {
+mongoose.connect('mongodb+srv://root:Internet9797@cluster0.mtkuk.mongodb.net/Technofania', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     autoIndex: true,
