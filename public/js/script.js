@@ -65,7 +65,7 @@ let scene = new ScrollMagic.Scene({
 // countdown timer 
 
 let countdown = () => {
-    const finalDate = new Date("March 1, 2022 00:00:00").getTime();
+    const finalDate = new Date("March 5, 2022 00:00:00").getTime();
     const currDate = new Date().getTime();
     const remainingTime = finalDate - currDate;
 
