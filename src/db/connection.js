@@ -1,6 +1,14 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://root:Internet9797@cluster0.mtkuk.mongodb.net/Technofania')
+const DB_URL = process.env.DB_NAME;
+
+const connectionParams={
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}
+
+mongoose.connect(DB_URL, connectionParams)
 .then(() => {
     console.log('connection successful');
 }).catch((err) => {

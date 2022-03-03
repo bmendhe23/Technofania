@@ -1,10 +1,18 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const fs = require('fs');
+require('dotenv').config();
 require('./db/connection');
 const Agamya = require('./models/agamya');
 const port = process.env.PORT || 3000;
 const multer = require('multer');
+const AWS = require('aws-sdk');
+
+const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
 
 // middlewares
 app.use(express.urlencoded({extended: true}));
@@ -51,6 +59,28 @@ app.post('/register', upload.single('submission'), async (req, res) => {
 
         const registeredTeam = await registerTeam.save();
         res.status(201).send(registeredTeam);
+
+        const fileName = req.file.filename;
+        
+        let fileContent
+        fs.readFile(`./uploads/${fileName}` , (err, data) => {
+            if(err)
+                console.log(err);
+            else {    
+                fileContent = data;
+
+                const mimetype = req.file.mimetype;
+
+                s3.putObject({
+                    Body: fileContent,
+                    Bucket: process.env.AWS_BUCKET_NAME,
+                    Key: req.file.filename,
+                    ContentType: mimetype
+                }).promise();
+
+            }
+        })
+
     } catch (err) {
         res.status(400).send(err);
     }
