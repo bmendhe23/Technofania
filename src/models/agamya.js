@@ -46,7 +46,6 @@ const aagamyaSchema = mongoose.Schema({
     },
     member4Roll: {
         type: String,
-        unique: true,
         trim: true
     },
     member5Name: {
@@ -55,7 +54,6 @@ const aagamyaSchema = mongoose.Schema({
     },
     member5Roll: {
         type: String,
-        unique: true,
         trim: true
     }
 });

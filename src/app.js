@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const session = require('express-session');
+const flash = require('connect-flash');
 const fs = require('fs');
 require('dotenv').config();
 require('./db/connection');
@@ -9,14 +11,33 @@ const port = process.env.PORT || 3000;
 const multer = require('multer');
 const AWS = require('aws-sdk');
 
+app.use(session({
+    secret: process.env.SECRET,
+    cookie: { maxAge: 60000 },
+    saveUninitialized: false,
+    resave: false
+}));
+  
+app.use(flash());
+
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
+// view engine
+
+app.set('view engine', 'hbs');
+
 // middlewares
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.resolve(__dirname, '../public')));
+app.use((req,res,next) => {
+    res.locals.message = req.session.message;
+    delete req.session.message;
+    next();
+})
 
 // storage
 
@@ -33,11 +54,11 @@ const upload = multer({storage: storage})
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../public/index.html'));
+    res.render('index');
 })
 
 app.get('/register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../public/aagamya.html'));
+    res.render('aagamya')
 })
 
 app.post('/register', upload.single('submission'), async (req, res) => {
@@ -58,8 +79,7 @@ app.post('/register', upload.single('submission'), async (req, res) => {
         })
 
         const registeredTeam = await registerTeam.save();
-        res.status(201).send(registeredTeam);
-
+    
         const fileName = req.file.filename;
         
         let fileContent
@@ -81,8 +101,18 @@ app.post('/register', upload.single('submission'), async (req, res) => {
             }
         })
 
+        req.session.message = {
+            type: 'success',
+            message: 'Registered successfully'
+        }
+        return res.status(201).redirect('/register');
+
     } catch (err) {
-        res.status(400).send(err);
+        req.session.message = {
+            type: 'error',
+            message: 'Registration failed'
+        }
+        return res.status(400).redirect('/register');
     }
 })
 

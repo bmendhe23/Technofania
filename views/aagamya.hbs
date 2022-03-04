@@ -30,6 +30,11 @@
         </nav>
     </header>
     <main>
+        {{#if message }} 
+            <div class="alert alert-{{message.type}}" role="alert">
+                {{message.message}}
+            </div>
+        {{/if}}
         <div class="container">
             <section class="regis-container">
                 <div class="details-container">

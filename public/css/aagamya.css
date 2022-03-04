@@ -151,6 +151,36 @@ input[type="file"] {
 
 /* Form Style end */
 
+/* alert style */
+
+.alert {
+    position: absolute;
+    text-align: center;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    top: 1%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+}
+
+.alert-error {
+    color: #842029;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+}
+
+.alert-error>li {
+    color: #842029;
+}
+
+/* alert styles end */
+
 /* media queries */
 
 @media only screen and (width: 1280px) and (height: 800px) {
