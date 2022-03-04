@@ -21,7 +21,7 @@ app.use(session({
 app.use(flash());
 
 const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
@@ -60,6 +60,18 @@ app.get('/', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('aagamya')
 })
+
+app.get('/team22', (req, res) => {
+    res.render('team2k22');
+})
+
+app.get('/team23', (req, res) => {
+    res.render('team2k23');
+})
+
+app.get('/team24', (req, res) => {
+    res.render('team');
+}) 
 
 app.post('/register', upload.single('submission'), async (req, res) => {
     try {

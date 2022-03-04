@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+main {
+    position: absolute;
+}
+
+.row1 {
+
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-left: 620px;
+
+}
+
+.row2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-left: 300px;
+
+}
+
+.row3 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 300px;
+}
+
+.row4 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 300px;
+}
+
+.teamOption {
+
+    height: 300px;
+    width: 550px;
+    position: relative;
+
+}
+
+.teamOption select {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: black;
+    width: 130px;
+    height: 30px;
+    background-image: linear-gradient(to right, #B8FFF9, #42C2FF);
+    font-weight: 600;
+    outline: none;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    border: black;
+}
+
+.teamOption select option {
+    background-color: #B8FFF9;
+    color: black;
+}
+
+.teamTitle {
+    margin-top: 50px;
+    padding-left: 670px;
+}
+
+.teamTitle span {
+    text-align: center;
+    font-weight: 800;
+    padding: .3rem 3rem;
+    font-size: 1.5rem;
+    letter-spacing: 7px;
+    background-color: rgba(122, 146, 146, 0.247);
+    height: 30px;
+    width: 180px;
+    border-radius: 50px;
+
+}
+
+.our-team .pic {
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    border-radius: 50% 50% 50% 0;
+    overflow: hidden;
+    transition: all 0.5s ease 0s;
+
+
+}
+
+.our-team:hover .pic {
+    border-top-color: #AAA492;
+    border-bottom-color: #AAA492;
+    border-radius: 50% 0;
+}
+
+.our-team .pic img {
+    /* margin-left: 45px; */
+    width: 255px;
+    height: 200px;
+    transition: all 0.5s ease 0s;
+}
+
+.our-team .team-content {
+    padding: 20px 0;
+}
+
+.our-team .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #AAA492;
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+}
+
+.our-team .post {
+    display: block;
+    font-size: 17px;
+    color: #878484;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.our-team .social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.our-team .social li {
+    display: inline-block;
+}
+
+.our-team .social li a {
+    display: block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: #fff;
+    font-size: 17px;
+    color: black;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .team-content title {
+    background: black;
+    color: #fff;
+}
+
+.container {
+    position: relative;
+    margin-left: 5%;
+}
+
+.container .card {
+    position: relative;
+    /* width: 210px;
+    height: 240px; */
+    /* background-color: #23F0C7; */
+    /* background-image: linear-gradient(to right,#397367,#63CCCA,#5DA399,#42858C,#35393C); */
+    /* background-image: linear-gradient(to right,black,#7E7474); */
+    /* background-color: #9D92A9; */
+    /* background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%); */
+
+
+    border-radius: 15px;
+    overflow: hidden;
+    border-style: none;
+
+}
+
+@media only screen and (max-width: 990px) {
+    .our-team {
+        margin-bottom: 30px;
+    }
+}
