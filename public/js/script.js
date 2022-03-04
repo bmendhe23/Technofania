@@ -65,6 +65,7 @@ let scene = new ScrollMagic.Scene({
 // countdown timer 
 
 let countdown = () => {
+    
     const finalDate = new Date("March 12, 2022 00:00:00").getTime();
     const currDate = new Date().getTime();
     const remainingTime = finalDate - currDate;
@@ -98,21 +99,14 @@ let countdown = () => {
         document.querySelector('.seconds').innerText = "0" + remainingSeconds;
     else 
         document.querySelector('.seconds').innerText = remainingSeconds;
+
+    if(remainingDays<=0 && remainingHours<=0 && remainingMinutes<=0 && remainingSeconds<=0) {
+        clearInterval(timerInterval);
+        document.querySelector('.countdown-timer').style.display = "none";
+        document.querySelector('.live').style.display = "block";
+    }
 }
 
-setInterval(countdown, 1000);
+const timerInterval = setInterval(countdown, 1000);
 
 // countdown timer end
-
-// alert messages
-
-const alertMsg = document.querySelector('.alert');
-if(alertMsg.innerText === 'Registered successfully') {
-    alertMsg.classList.add('alert-success');
-    alertMsg.classList.remove('alert-error');
-} else if(alertMsg.innerText === 'Registration failed') {
-    alertMsg.classList.add('alert-error');
-    alertMsg.classList.remove('alert-success');
-}
-
-// alert messages end

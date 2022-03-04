@@ -11,6 +11,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.live {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px black;
+    font-size: 1.4rem;
+    font-weight: 100;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* parallax css */
 
 .img-container {
@@ -209,12 +222,19 @@ body {
         top: 55%;
         font-size: 1.3rem;
     }
+    .live {
+        top: 64%;
+        font-size: 1.3rem;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
     .countdown-timer {
         top: 53%;
         font-size: 1.3rem;
+    }
+    .live {
+        top: 62%;
     }
 }
 
@@ -310,6 +330,10 @@ body {
         font-size: 1.2rem;
     }
 
+    .live {
+        font-size: 1.2rem;
+    }
+
     .details-title {
         font-size: 3.4rem;
     }
@@ -338,6 +362,9 @@ body {
         font-size: 1rem;
     }
 
+    .live {
+        font-size: 1rem;
+    }
 
     .info-container {
         padding: 2rem 4rem;
@@ -370,6 +397,9 @@ body {
         font-size: .8rem;
     }
 
+    .live {
+        font-size: .8rem;
+    }
 
     .navbar {
         padding: 1rem 2rem;
