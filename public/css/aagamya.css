@@ -226,6 +226,10 @@ input[type="file"] {
         margin-top: -9rem;
     }
 
+    .form-title {
+        text-align: center;
+    }
+
     blockquote {
         font-size: 1rem;
     }
