@@ -8,55 +8,77 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* preloader */
+
+.preloader {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+.disappear {
+    animation: vanish 1s forwards;
+}
+
+@keyframes vanish {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* preloader ends */
+
 body {
     background-color: black;
 }
 
 main {
     position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .row1 {
 
     display: flex;
-    flex-direction: row;
-    margin-top: 100px;
-    margin-left: 620px;
-
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem;
 }
 
-.row2 {
+.row {
     display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-    margin-left: 300px;
-
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 2rem;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
-.row3 {
-    display: flex;
-    flex-direction: row;
-    margin-left: 300px;
-}
-
-.row4 {
-    display: flex;
-    flex-direction: row;
-    margin-left: 300px;
+.team-content .title {
+    letter-spacing: 1px;
 }
 
 .teamOption {
-
-    height: 300px;
-    width: 550px;
     position: relative;
-
+    margin-right: 2rem;
 }
 
 .teamOption select {
     position: absolute;
-    right: 0px;
-    bottom: 0px;
+    right: 0;
+    bottom: 0;
     color: black;
     width: 130px;
     height: 30px;
@@ -74,8 +96,11 @@ main {
 }
 
 .teamTitle {
-    margin-top: 50px;
-    padding-left: 670px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5rem;
+    margin-bottom: 4rem;
 }
 
 .teamTitle span {
@@ -85,10 +110,7 @@ main {
     font-size: 1.5rem;
     letter-spacing: 7px;
     background-color: rgba(122, 146, 146, 0.247);
-    height: 30px;
-    width: 180px;
     border-radius: 50px;
-
 }
 
 .our-team .pic {
@@ -166,27 +188,70 @@ main {
 .container {
     position: relative;
     margin-left: 5%;
+    align-self: center;
 }
 
 .container .card {
     position: relative;
-    /* width: 210px;
-    height: 240px; */
-    /* background-color: #23F0C7; */
-    /* background-image: linear-gradient(to right,#397367,#63CCCA,#5DA399,#42858C,#35393C); */
-    /* background-image: linear-gradient(to right,black,#7E7474); */
-    /* background-color: #9D92A9; */
-    /* background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%); */
-
-
     border-radius: 15px;
     overflow: hidden;
     border-style: none;
 
 }
 
-@media only screen and (max-width: 990px) {
-    .our-team {
-        margin-bottom: 30px;
+/* media queries */
+
+@media only screen and (max-width: 1000px) {
+    .teamTitle {
+        margin-left: 3rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .row1 {
+        margin-top: 18rem;
+    }
+
+    .menu-btn.open {
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .teamTitle {
+        margin-left: 2rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .navbar {
+        padding: 2rem 1rem;
+    }
+
+    .menu-btn {
+        right: 5%;
+    }
+
+    .menu-btn.open {
+        right: 10%;
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .teamOption select {
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 1.5rem;
+    }
+
+    .teamTitle {
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .navbar.toggle {
+        padding: 1rem;
     }
 }
