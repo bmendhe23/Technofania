@@ -73,6 +73,10 @@ app.get('/team24', (req, res) => {
     res.render('team');
 }) 
 
+app.get('/events', (req, res) => {
+    res.render('coming-soon');
+}) 
+
 app.post('/register', upload.single('submission'), async (req, res) => {
     try {
 

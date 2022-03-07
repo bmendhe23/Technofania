@@ -185,5 +185,6 @@ header {
 
     .menu-btn.open {
         top: 50%;
+        right: 15%;
     }
 }
