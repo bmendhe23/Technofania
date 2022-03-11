@@ -66,7 +66,7 @@ let scene = new ScrollMagic.Scene({
 
 let countdown = () => {
     
-    const finalDate = new Date("March 12, 2022 00:00:00").getTime();
+    const finalDate = new Date("March 20, 2022 00:00:00").getTime();
     const currDate = new Date().getTime();
     const remainingTime = finalDate - currDate;
 
@@ -110,3 +110,22 @@ let countdown = () => {
 const timerInterval = setInterval(countdown, 1000);
 
 // countdown timer end
+
+// favicon
+
+const faviconTag = document.querySelector("#favicon");
+const isLight = window.matchMedia('(prefers-color-scheme: light)')
+
+const changeFavicon = () => {
+    if(isLight.matches) {
+        faviconTag.href = './assets/favicon/tf-logo-icon-dark.ico';
+    } else {
+        faviconTag.href = './assets/favicon/tf-logo-icon.ico';
+    }
+};
+
+changeFavicon();
+
+isLight.addEventListener('change', changeFavicon);
+
+// favicon load
