@@ -7,7 +7,7 @@ const fs = require('fs');
 require('dotenv').config();
 require('./db/connection');
 const Agamya = require('./models/agamya');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const multer = require('multer');
 const AWS = require('aws-sdk');
 
@@ -133,4 +133,6 @@ app.post('/register', upload.single('submission'), async (req, res) => {
 })
 
 // port number listening
-app.listen(port)
+app.listen(port, () => {
+    console.log('App is listening at port 8080');
+})
