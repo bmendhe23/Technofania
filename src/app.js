@@ -21,8 +21,8 @@ app.use(session({
 app.use(flash());
 
 const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY
 });
 
 // view engine
@@ -109,7 +109,7 @@ app.post('/register', upload.single('submission'), async (req, res) => {
 
                 s3.putObject({
                     Body: fileContent,
-                    Bucket: process.env.AWS_BUCKET_NAME,
+                    Bucket: process.env.BUCKET_NAME,
                     Key: req.file.filename,
                     ContentType: mimetype
                 }).promise();
