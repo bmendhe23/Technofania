@@ -77,6 +77,10 @@ app.get('/events', (req, res) => {
     res.render('coming-soon');
 }) 
 
+app.get('/aimGame',(req,res)=>{
+    res.render('aimGame.hbs');
+})
+
 app.post('/register', upload.single('submission'), async (req, res) => {
     try {
 
