@@ -178,6 +178,10 @@ input[type="file"] {
     background-color: rgb(46, 46, 46);
 }
 
+.note {
+    font-size: small;
+}
+
 /* Form Style end */
 
 /* alert style */
