@@ -74,7 +74,7 @@ app.get('/team24', (req, res) => {
 }) 
 
 app.get('/events', (req, res) => {
-    res.render('coming-soon');
+    res.render('events');
 }) 
 
 app.get('/leaderboard',(req,res)=>{
