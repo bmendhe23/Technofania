@@ -77,14 +77,6 @@ app.get('/events', (req, res) => {
     res.render('events');
 }) 
 
-app.get('/leaderboard',(req,res)=>{
-    res.render('LeaderboardSAS');
-});
-
-app.get('/shootAtSight',(req,res)=>{
-    res.render('shootAtSight');
-})
-
 app.post('/register', upload.single('submission'), async (req, res) => {
     try {
 
