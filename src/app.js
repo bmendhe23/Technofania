@@ -10,6 +10,9 @@ const Agamya = require('./models/agamya');
 const port = process.env.PORT || 8080;
 const multer = require('multer');
 const AWS = require('aws-sdk');
+const User = require('./models/user');
+const Player = require('./models/playerData');
+const sqluser = require('./models/sqlData');
 
 app.use(session({
     secret: process.env.SECRET,
@@ -58,7 +61,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/register', (req, res) => {
-    res.render('aagamya')
+    res.render('registerPage')
 })
 
 app.get('/team22', (req, res) => {
@@ -77,59 +80,213 @@ app.get('/events', (req, res) => {
     res.render('events');
 }) 
 
-app.post('/register', upload.single('submission'), async (req, res) => {
-    try {
 
-        const registerTeam = new Agamya({
-            teamname: req.body.teamname,
-            member1Name: req.body.member1Name,
-            member1Roll: req.body.member1Roll,
-            member2Name: req.body.member2Name,
-            member2Roll: req.body.member2Roll,
-            member3Name: req.body.member3Name,
-            member3Roll: req.body.member3Roll,
-            member4Name: req.body.member4Name,
-            member4Roll: req.body.member4Roll,
-            member5Name: req.body.member5Name,
-            member5Roll: req.body.member5Roll
-        })
 
-        const registeredTeam = await registerTeam.save();
-    
-        const fileName = req.file.filename;
-        
-        let fileContent
-        fs.readFile(`./uploads/${fileName}` , (err, data) => {
-            if(err)
-                console.log(err);
-            else {    
-                fileContent = data;
 
-                const mimetype = req.file.mimetype;
-
-                s3.putObject({
-                    Body: fileContent,
-                    Bucket: process.env.BUCKET_NAME,
-                    Key: req.file.filename,
-                    ContentType: mimetype
-                }).promise();
-
-            }
-        })
-
+app.post("/register",(req,res)=>{
+    try{
+      const parsed = parseInt(req.body.username);
+      const pass = req.body.password;
+      if(pass.length < 8 ){
         req.session.message = {
-            type: 'success',
-            message: 'Registered successfully'
+          type: 'error',
+          message: 'Password should be atleast of 8 characters'
         }
-        return res.status(201).redirect('/register');
-
-    } catch (err) {
+        res.redirect('/register')
+        return ;
+      }else if(pass.length > 20){
         req.session.message = {
-            type: 'error',
-            message: 'Registration failed'
+          type: 'error',
+          message: 'Password should be of atmost 20 characters'
         }
-        return res.status(400).redirect('/register');
-    }
+        res.redirect('/register')
+        return;
+      }
+      if (isNaN(parsed)) {
+        req.session.message = {
+          type: 'error',
+          message: 'Username can only be a Roll Number'
+        }
+        res.redirect('/register')
+        return ;
+      }else if(parsed <100000000 || parsed>999999999){
+        req.session.message = {
+          type: 'error',
+          message: 'Not a valid Roll number'
+        }
+        res.redirect('/register')
+        return;
+      }
+        User.register({username:parsed}, req.body.password, function(err, user) {
+          if (err) { 
+
+            req.session.message = {
+              type: 'error',
+              message: `${err.message}`
+          }
+          res.redirect('/register')  //TODO
+
+          }else{
+            const newPlayer = new Player({ username: parsed });
+            newPlayer.save(function (err) {
+              if (err) {
+                req.session.message = {
+                  type: 'error',
+                  message: 'Registration failed'
+              }
+              res.redirect('/register')  //TODO
+
+              }else{
+                console.log("PLAYER CREATED");
+                const newSqlUser = new sqluser({
+                  username:parsed,
+                  levels:[
+                    {
+                      levelNumber:"0",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"1",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"2",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"3",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"4",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"5",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"6",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"7",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"8",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"9",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"10",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"11",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"12",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"13",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"14",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"15",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"16",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"17",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"18",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"19",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"20",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"21",
+                      progress:"false",
+                      query:""
+                    },
+                    {
+                      levelNumber:"22",
+                      progress:"false",
+                      query:""
+                    }
+                  ]
+                })
+                newSqlUser.save(function (err) {
+                  if (err) {
+                    req.session.message = {
+                      type: 'error',
+                      message: 'Registration failed'
+                  }
+                  res.redirect('/register')  //TODO
+                  }else{
+                    req.session.message = {
+                      type: 'success',
+                      message: `You have Registered for Technofania'22`
+                  }
+                    res.redirect('/register')  //TODO
+                  }
+                });
+              }
+            });
+  
+            
+          }
+       
+      });
+      }catch(err){
+  req.session.message = {
+    type: 'error',
+    message: 'Registration failed'
+}
+  res.send('false');
+      }
 })
 
 // port number listening
